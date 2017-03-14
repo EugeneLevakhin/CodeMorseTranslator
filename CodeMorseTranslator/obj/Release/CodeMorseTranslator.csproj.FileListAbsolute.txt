@@ -1,0 +1,13 @@
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\bin\Release\CodeMorseTranslator.exe.config
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\bin\Release\CodeMorseTranslator.exe
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\bin\Release\CodeMorseTranslator.pdb
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\MainWindow.g.cs
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\App.g.cs
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator_MarkupCompile.cache
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator_MarkupCompile.lref
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\MainWindow.baml
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.g.resources
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.Properties.Resources.resources
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.csproj.GenerateResource.Cache
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.exe
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.pdb
