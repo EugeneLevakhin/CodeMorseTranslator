@@ -33,33 +33,34 @@ namespace CodeMorseTranslator
 
         private void ButtonTranslate_Click(object sender, RoutedEventArgs e)
         {
+            statusBlock.Text = "Translating...";
             MorseTranslator translator = new MorseTranslator();
             if (lstDirectionOfTranslate.SelectedItem == lstDirectionOfTranslate.Items[0])
             {
                 Task<string> task = translator.TransleteEnglishToCodeAsync(txtSource.Text);
                 task.ContinueWith(t =>
-                this.Dispatcher.Invoke(() => txtTarget.Text = t.Result)
+                this.Dispatcher.Invoke(() => { txtTarget.Text = t.Result; statusBlock.Text = string.Empty; })
                 );
             }
             else if (lstDirectionOfTranslate.SelectedItem == lstDirectionOfTranslate.Items[1])
             {
                 Task<string> task = translator.TransleteCodeToEnglishAsync(txtSource.Text);
                 task.ContinueWith(t =>
-                this.Dispatcher.Invoke(() => txtTarget.Text = t.Result)
+                this.Dispatcher.Invoke(() => { txtTarget.Text = t.Result; statusBlock.Text = string.Empty; })
                 );
             }
             else if (lstDirectionOfTranslate.SelectedItem == lstDirectionOfTranslate.Items[2])
             {
                 Task<string> task = translator.TransleteRussianToCodeAsync(txtSource.Text);
                 task.ContinueWith(t => 
-                this.Dispatcher.Invoke(() => txtTarget.Text = t.Result)
+                this.Dispatcher.Invoke(() => { txtTarget.Text = t.Result; statusBlock.Text = string.Empty; })
                 );
             }
             else if (lstDirectionOfTranslate.SelectedItem == lstDirectionOfTranslate.Items[3])
             {
                 Task<string> task = translator.TransleteCodeToRussianAsync(txtSource.Text);
                 task.ContinueWith(t =>
-                this.Dispatcher.Invoke(() => txtTarget.Text = t.Result)
+                this.Dispatcher.Invoke(() => { txtTarget.Text = t.Result; statusBlock.Text = string.Empty; })
                 );
             }
             
@@ -67,6 +68,18 @@ namespace CodeMorseTranslator
 
         private void CommandBinding_Executed_Open(object sender, ExecutedRoutedEventArgs e)
         {
+            if (isTextChanged && txtSource.Text != string.Empty)
+            {
+                MessageBoxResult mbResult = MessageBox.Show("Do you want to save file?", "CodeMorseTranslator", MessageBoxButton.YesNoCancel);
+                if (mbResult == MessageBoxResult.Yes)
+                {
+                    CommandBinding_Executed_Save(sender, null);
+                }
+                else if (mbResult == MessageBoxResult.Cancel)
+                {
+                    return;
+                }
+            }
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Filter = "Text documents|*.txt";
             openDialog.ShowDialog();
@@ -84,10 +97,12 @@ namespace CodeMorseTranslator
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("File not found", "Warning", MessageBoxButton.OK);
+                    MessageBox.Show("File not found", "CodeMorseTranslator", MessageBoxButton.OK);
                 }
                 fileNameForSaving = openDialog.FileName;
+                isTextChanged = false;
             }
+
         }
 
         private void CommandBinding_Executed_Close(object sender, ExecutedRoutedEventArgs e)
@@ -97,11 +112,21 @@ namespace CodeMorseTranslator
 
         private void CommandBinding_Executed_New(object sender, ExecutedRoutedEventArgs e)
         {
-            txtSource.Text = string.Empty;
-            txtTarget.Text = string.Empty;
-            fileNameForSaving = string.Empty;
+            if (isTextChanged && txtSource.Text != string.Empty)
+            {
+                MessageBoxResult mbResult = MessageBox.Show("Do you want to save file?", "CodeMorseTranslator", MessageBoxButton.YesNoCancel);
+                if (mbResult == MessageBoxResult.Yes)
+                {
+                    CommandBinding_Executed_Save(sender, null);
+                }
+                else if (mbResult == MessageBoxResult.No)
+                {
+                    txtSource.Text = string.Empty;
+                    txtTarget.Text = string.Empty;
+                    fileNameForSaving = string.Empty;
+                }
+            }
         }
-
      
         private void CommandBinding_Executed_Save(object sender, ExecutedRoutedEventArgs e)
         {
@@ -118,7 +143,7 @@ namespace CodeMorseTranslator
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Can not save", "Warning", MessageBoxButton.OK);
+                    MessageBox.Show("Can not save", "CodeMorseTranslator", MessageBoxButton.OK);
                 }
                 isTextChanged = false;
             }
@@ -147,7 +172,7 @@ namespace CodeMorseTranslator
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Can not save", "Warning", MessageBoxButton.OK);
+                    MessageBox.Show("Can not save", "CodeMorseTranslator", MessageBoxButton.OK);
                 }
                 fileNameForSaving = saveDialog.FileName;
                 isTextChanged = false;
@@ -173,9 +198,9 @@ namespace CodeMorseTranslator
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (isTextChanged)
+            if (isTextChanged && txtSource.Text != string.Empty)
             {
-                MessageBoxResult mbResult = MessageBox.Show("Do you want to save file", "Warning", MessageBoxButton.YesNoCancel);
+                MessageBoxResult mbResult = MessageBox.Show("Do you want to save file?", "CodeMorseTranslator", MessageBoxButton.YesNoCancel);
                 if (mbResult == MessageBoxResult.Yes)
                 {
                     CommandBinding_Executed_Save(sender, null);
@@ -183,6 +208,7 @@ namespace CodeMorseTranslator
                 else if (mbResult == MessageBoxResult.Cancel)
                 {
                    e.Cancel = true;
+                    this.Height = 100;
                 }
             }
         }
