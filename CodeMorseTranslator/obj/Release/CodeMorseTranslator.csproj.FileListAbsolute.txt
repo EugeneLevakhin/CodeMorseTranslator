@@ -11,3 +11,4 @@ C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMor
 C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.csproj.GenerateResource.Cache
 C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.exe
 C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.pdb
+C:\Users\eugen\Documents\Visual Studio 2015\Projects\CodeMorseTranslator\CodeMorseTranslator\obj\Release\CodeMorseTranslator.csprojResolveAssemblyReference.cache

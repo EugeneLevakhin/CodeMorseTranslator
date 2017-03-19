@@ -48,10 +48,11 @@
                 <ComboBoxItem>Russian - Morse</ComboBoxItem>
                 <ComboBoxItem>Morse - Russian</ComboBoxItem>
             </ComboBox>
+            <Button Name="btnPlay" Margin="5,5,0,0" Click="ButtonPlay_Click" IsEnabled="False" Content="Play selected Morse"/>
         </StackPanel>
-        <TextBox Name="txtSource" Grid.Row="2" Margin="5" FontSize="14" TextWrapping="Wrap" TextChanged="txtSource_TextChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True"></TextBox>
+        <TextBox Name="txtSource" Grid.Row="2" Margin="5" FontSize="14" TextWrapping="Wrap" TextChanged="txtSource_TextChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" SelectionChanged="txtBox_SelectionChanged"></TextBox>
         <GridSplitter ShowsPreview="True" Grid.Row="3" HorizontalAlignment="Stretch" Height="3" Background="Gray" Margin="5,0,5,0"></GridSplitter>
-        <TextBox Name="txtTarget" Grid.Row="4" Margin="5" FontSize="14" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"></TextBox>
+        <TextBox Name="txtTarget" Grid.Row="4" Margin="5" FontSize="14" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="txtBox_SelectionChanged"></TextBox>
         <StatusBar Name="statusBar" Grid.Row="5" Height="22">
             <TextBlock Name="statusBlock"></TextBlock>
         </StatusBar>
